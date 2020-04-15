@@ -4,15 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView txtTG;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d("LifeCycle","onCreate");
-
     }
 
     @Override
@@ -24,13 +29,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart(){
         super.onRestart();
-        Log.d("LifeCyle","onRestart");
+        Log.d("LifeCycle","onRestart");
     }
 
     @Override
     protected void onResume(){
         super.onResume();
         Log.d("LifeCycle","onResume");
+        txtTG = findViewById(R.id.txtTG);
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        String date = sdf.format(new Date());
+        txtTG.setText(date);
+        Toast.makeText(getApplicationContext(), "NguyenDoQuangHuy_59130946", Toast.LENGTH_SHORT).show();
     }
 
     @Override
